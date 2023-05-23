@@ -8,7 +8,7 @@ public class Person {
 	public String lastName = "";
 	public String gender = "";
 	public String birth = "";
-	static int age = 0;
+	public int age = 0;
 	public int weight = 0;
 	public int height = 0;
 	
@@ -52,5 +52,13 @@ public class Person {
 	
 	public void personMarriged(Person p) {
 		System.out.println(this.firstName + this.lastName + " Congraturating marrige with " + p.firstName + p.lastName);
+	}
+	
+	public void love(Person p) {
+		System.out.println(this.firstName + this.lastName + " love " + p.firstName + p.lastName);
+	}
+	
+	public int getAge() {
+		return age;
 	}
 }
