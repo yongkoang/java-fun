@@ -22,5 +22,4 @@ public class MainAnimalBouncer {
 		Leopard leopard = new Leopard();
 		leopard.bark();
 	}
-
 }

@@ -1,6 +1,6 @@
 package model.animal;
 
-public class Lion extends Animal implements Predator, Barkable {
+public class Lion extends Animal implements BarkablePredator {
 	public String getFood() {
 		return "cow";
 	}

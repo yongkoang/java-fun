@@ -14,6 +14,7 @@ public class MainPersonPrint {
 		p1.height = 168;
 		p1.weight = 46;
 		p1.print();
+		p1.think();
 		
 		Person p2 = new Person("안", "유진", "여");
 		p2.birth = "2003-09-01";
@@ -22,6 +23,8 @@ public class MainPersonPrint {
 		p2.print();
 		
 		printMarrige(marrigeMan, p1);
+		
+		printWithEat(p1, p2);
 	}
 	
 	static void print (String name, String gender) {
@@ -53,5 +56,9 @@ public class MainPersonPrint {
 	
 	static void printMarrige (Person p1, Person p2) {
 		System.out.println(p1.firstName + p1.lastName + " Congraturating marrige with " + p2.firstName + p2.lastName);
+	}
+	
+	static void printWithEat (Person p1, Person p2) {
+		System.out.println(p1.firstName + p1.lastName + " eat with " + p2.firstName + p2.lastName);
 	}
 }

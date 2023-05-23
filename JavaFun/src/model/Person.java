@@ -18,6 +18,15 @@ public class Person {
 		this.gender = gender;
 	}
 	
+	public Person (String firstName, String lastName, String gender, String birth, int height, int weight) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.birth = birth;
+		this.height = height;
+		this.weight = weight;		
+	}
+	
 	public Person (String lastName, String gender) {	
 		this.lastName = lastName;
 		this.gender = gender;
@@ -35,5 +44,13 @@ public class Person {
 	
 	void familyConvert(String convertFirstName) {
 		firstName = convertFirstName;
-	}	
+	}
+	
+	public void think() {
+		System.out.println(this.firstName + " thinking!");
+	}
+	
+	public void personMarriged(Person p) {
+		System.out.println(this.firstName + this.lastName + " Congraturating marrige with " + p.firstName + p.lastName);
+	}
 }
