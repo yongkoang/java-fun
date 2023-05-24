@@ -39,12 +39,6 @@ public class MainFileLineReader {
 			person.print();
 		}
 		
-		Person p0 = (Person) persons.get(0);
-		Person p1 = (Person) persons.get(1);
-		Person p2 = (Person) persons.get(2);
-		p0.personMarriged(p1);
-		p2.love(p0);
-		
 		// 가장 키가 큰 사람은 ?
 		int maxHeight = 0;
 		String name = "";
@@ -62,14 +56,9 @@ public class MainFileLineReader {
 				name = person.firstName + person.lastName;
 				System.out.println(name + "는 여자다." );
 			}			
-		}
+		}	
 		
-		// 나이순으로 출력한다.
-		System.out.println("Sorted age!");
-		Collections.sort(persons, new PersonAgeComparator());
-		for (Person person : persons) {
-			person.print();		
-		}
+		//persons.get(0).personMarriged(persons.get(persons.size()-1));
 		
 		//키순으로 출력한다.
 		Collections.sort(persons, new PersonHeightComparator());
@@ -77,17 +66,32 @@ public class MainFileLineReader {
 		for (Person person : persons) {
 			person.print();		
 		}
+		
+		// 나이순으로 출력한다.
+		System.out.println("Sorted age!");
+		Collections.sort(persons, new PersonAgeComparator());
+		for (Person person : persons) {
+			person.print();
+		}
+		
+		// 남자 중 가장 나이 많은 남자와 가장 나이 어린 여자가 결혼한다.
+		Person p0 = (Person) persons.get(0);
+		Person p1 = (Person) persons.get(1);
+		Person p2 = (Person) persons.get(2);
+		p0.personMarriged(p1);
+		p2.love(p0);
+		
 	}
 }
 
 class PersonAgeComparator implements java.util.Comparator<Person> {
 	public int compare(Person a, Person b) {
-		return b.getAge() - a.getAge();
+		return a.getAge() - b.getAge();
 	}	
 }
 
 class PersonHeightComparator implements java.util.Comparator<Person> {
 	public int compare(Person a, Person b) {
 		return b.height - a.height;
-	}	
+	}
 }

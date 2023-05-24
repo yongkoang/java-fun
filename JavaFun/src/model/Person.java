@@ -24,7 +24,13 @@ public class Person {
 		this.gender = gender;
 		this.birth = birth;
 		this.height = height;
-		this.weight = weight;		
+		this.weight = weight;
+		
+		if (birth.length() > 7) {
+			LocalDate ld = LocalDate.parse(birth);
+			LocalDate ldNow = LocalDate.now();
+			age = Period.between(ld, ldNow).getYears();
+		}
 	}
 	
 	public Person (String lastName, String gender) {	
@@ -33,12 +39,6 @@ public class Person {
 	}
 	
 	public void print() {
-		if (birth.length() > 7) {
-			LocalDate ld = LocalDate.parse(birth);
-			LocalDate ldNow = LocalDate.now();
-			age = Period.between(ld, ldNow).getYears();
-		}
-		
 		System.out.println(firstName + this.lastName + " " + this.gender + " " + this.birth + " " + age + " " + height + " " + weight);
 	}
 	
