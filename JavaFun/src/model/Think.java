@@ -1,5 +1,9 @@
 package model;
 
-public class Think {
-	public String[] subject = {"Live", "Death"};
+import java.time.LocalDate;
+
+public class Think {	
+	public LocalDate ld;
+	public String subject = "";
+	public String context = "";
 }

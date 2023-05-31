@@ -12,7 +12,7 @@ import model.Person;
  * 김 길동 남 1973-02-21 180 90
 이 영순 여 1994-02-10 168 46
  */
-public class MainFileLineReader {
+public class MainPersonFileLineReader {
 	//static ArrayList<Person> persons = new ArrayList<>();	
 	static List<Person> persons = new ArrayList<>();	
 
@@ -29,15 +29,15 @@ public class MainFileLineReader {
 			
 			Person p = new Person(person[0], person[1], person[2], person[3], height, weight);
 			persons.add(p);
-			
-			System.out.println(line);
 		}
 		br.close();
 		
 		System.out.println(persons.size());
+		/*
 		for (Person person : persons) {
 			person.print();
 		}
+		*/
 		
 		// 가장 키가 큰 사람은 ?
 		int maxHeight = 0;
@@ -51,12 +51,14 @@ public class MainFileLineReader {
 		System.out.println(name + " max height " + maxHeight );
 		
 		// 여자들은?
+		String womanName = "";
 		for (Person person : persons) {
 			if ("여".equals(person.gender)) {				
-				name = person.firstName + person.lastName;
-				System.out.println(name + "는 여자다." );
+				womanName = womanName + person.firstName + person.lastName + " ";				
 			}			
 		}	
+		
+		System.out.println(womanName + "들은 여자다." );
 		
 		//persons.get(0).personMarriged(persons.get(persons.size()-1));
 		
@@ -75,18 +77,36 @@ public class MainFileLineReader {
 		}
 		
 		// 남자 중 가장 나이 많은 남자와 가장 나이 어린 여자가 결혼한다.
-		Person p0 = (Person) persons.get(0);
-		Person p1 = (Person) persons.get(1);
-		Person p2 = (Person) persons.get(2);
-		p0.personMarriged(p1);
-		p2.love(p0);
+		// 가장 나이 많은 남자
+		System.out.println("Love and Marrige!");
+		Person manHighAge = null;
+		int maxAge = 0;		
+		for (Person person : persons) {
+			if ("남".equals(person.gender) && maxAge < person.age ) {
+				manHighAge = person;
+				maxAge = person.age;
+			}			
+		}
+		
+		Person womanLowAge = null;
+		int minAge = 100;		
+		for (Person person : persons) {
+			if ("여".equals(person.gender) && minAge > person.age ) {
+				womanLowAge = person;
+				minAge = person.age;
+			}			
+		}		
+		
+		womanLowAge.love(manHighAge);
+		manHighAge.personMarriged(womanLowAge);
+		
 		
 	}
 }
 
 class PersonAgeComparator implements java.util.Comparator<Person> {
 	public int compare(Person a, Person b) {
-		return a.getAge() - b.getAge();
+		return b.getAge() - a.getAge();
 	}	
 }
 

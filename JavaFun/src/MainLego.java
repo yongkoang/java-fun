@@ -15,7 +15,7 @@ public class MainLego {
 		InputStream in = System.in;		
 		InputStreamReader reader = new InputStreamReader(in);
 		BufferedReader keyBr = new BufferedReader(reader);
-		System.out.println("Plese input sort method! ex)pn,pr,pd");		
+		System.out.println("Plese input sort method! ex)pn,pr,pd");
 		String key = keyBr.readLine();		
  		
 		List<LegoProductTechnic> legos = new ArrayList<>();

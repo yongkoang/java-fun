@@ -51,7 +51,7 @@ public class Person {
 	}
 	
 	public void personMarriged(Person p) {
-		System.out.println(this.firstName + this.lastName + " Congraturating marrige with " + p.firstName + p.lastName);
+		System.out.println(this.firstName + this.lastName + " congraturate marrige with " + p.firstName + p.lastName);
 	}
 	
 	public void love(Person p) {
