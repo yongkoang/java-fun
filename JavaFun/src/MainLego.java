@@ -12,11 +12,11 @@ import model.LegoProductTechnic;
 
 public class MainLego {	
 	public static void main(String[] args) throws IOException {		
-		InputStream in = System.in;		
+		InputStream in = System.in;
 		InputStreamReader reader = new InputStreamReader(in);
 		BufferedReader keyBr = new BufferedReader(reader);
 		System.out.println("Plese input sort method! ex)pn,pr,pd");
-		String key = keyBr.readLine();		
+		String key = keyBr.readLine();
  		
 		List<LegoProductTechnic> legos = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new FileReader("D:\\Projects\\lego\\legoTechnic.txt"));
